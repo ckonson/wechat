@@ -1,0 +1,12 @@
+{
+    "name": "kontem/wechat",
+    "description": "This is a wechat mp library for php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ckontem",
+            "email": "ckontem@gmail.com"
+        }
+    ],
+    "require": {}
+}
