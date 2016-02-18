@@ -21,7 +21,7 @@ class Http
     }
     public function buildApiUrl($url, $params)
     {
-        $url .= http_build_query($params);
+        $url .= '?'.http_build_query($params);
 
         return $url;
     }
@@ -66,7 +66,7 @@ class Http
         } else {
             $error = curl_errno($ch);
             curl_close($ch);
-            throw new Exception("curl出错，错误码:$error");
+            throw new \Exception("curl出错，错误码:$error");
         }
     }
 }
