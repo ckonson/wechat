@@ -11,4 +11,5 @@ namespace CkWechat\Config;
 class ApiUrl
 {
     const AccessToken = 'https://api.weixin.qq.com/cgi-bin/token';
+    const BackIps = 'https://api.weixin.qq.com/cgi-bin/getcallbackip';
 }
