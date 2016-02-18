@@ -11,7 +11,7 @@ namespace CkWechat;
 use CkWechat\Core\AccessToken;
 use CkWechat\Cache\FileCache;
 
-class application
+class Application
 {
   public function getToken($appId, $secret)
   {
