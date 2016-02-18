@@ -17,7 +17,7 @@ class Http
         $xml = array();
         $target_url = $this->buildApiUrl($url, $params);
 
-        return $this->postXmlCurl($target_url);
+        return $this->postXmlCurl($xml, $target_url);
     }
     public function buildApiUrl($url, $params)
     {
