@@ -1,0 +1,15 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Application	/Users/kontem/workspace/github_project/wechat/src/application.php	/^class Application$/;"	class	line:14
+getToken	/Users/kontem/workspace/github_project/wechat/src/application.php	/^    public function getToken($appId, $secret)$/;"	function	line:16
+result	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $result = '';$/;"	variable	line:18
+AccessToken_object	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $AccessToken_object = new AccessToken($appId, $secret);$/;"	variable	line:19
+cache_key	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $cache_key = md5($appId.$secret);$/;"	variable	line:20
+cache_obj	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $cache_obj = new FileCache();$/;"	variable	line:21
+cache_token	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $cache_token = $cache_obj->getKey($cache_key);$/;"	variable	line:22
+result	/Users/kontem/workspace/github_project/wechat/src/application.php	/^            $result = $AccessToken_object->getToken();$/;"	variable	line:24
+result	/Users/kontem/workspace/github_project/wechat/src/application.php	/^            $result = $cache_token;$/;"	variable	line:27
