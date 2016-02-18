@@ -8,7 +8,6 @@
 
 namespace CkWechat\Core;
 
-use CkWechat\Config\Http;
 use CkWechat\Config\ApiUrl;
 
 class AccessToken
