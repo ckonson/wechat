@@ -14,7 +14,7 @@ class FileCache
     protected $cache_path='';
     protected $cache_type='';
     protected $cache_time='';
-    public function __construct(array $params)
+    public function __construct(array $params = null)
     {
       # code...
     }
