@@ -45,7 +45,7 @@ class FileCache
         if (empty($key) || empty($value)) {
            #TODO
         }
-        $cache_file = $this->cache_path.$key
+        $cache_file = $this->cache_path.$key;
         if (!is_writable(dirname($cache_file))) {
             #TODO
             echo "缓存文件写入失败";

@@ -24,5 +24,5 @@ cache_file	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php
 result	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^            $result = file_get_contents($cache_file);$/;"	variable	line:38
 setkey	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    public function setkey($key = '', $value = '')$/;"	function	line:43
 value	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    public function setkey($key = '', $value = '')$/;"	variable	line:43
-cache_file	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^        $cache_file = $this->cache_path.$key$/;"	variable	line:48
+cache_file	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^        $cache_file = $this->cache_path.$key;$/;"	variable	line:48
 len	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^            $len = file_put_contents($cache_file, $value);$/;"	variable	line:53
