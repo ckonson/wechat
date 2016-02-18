@@ -27,7 +27,7 @@ class AccessToken
           'secret' => $this->secret,
           'grant_type' => 'client_credential',
         );
-        return new Http()->get(ApiUrl::AccessToken, $params);
+        return (new Http())->get(ApiUrl::AccessToken, $params);
     }
     //https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
 }
