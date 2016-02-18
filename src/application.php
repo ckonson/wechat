@@ -8,7 +8,7 @@
 
 namespace CkWechat;
 
-use CkWechat\Core;
+use CkWechat\Core\AccessToken;
 use CkWechat\Cache\FileCache;
 
 class application
