@@ -48,6 +48,7 @@ class FileCache
         $cache_file = $this->cache_path.$key
         if (!is_writable(dirname($cache_file))) {
             #TODO
+            echo "缓存文件写入失败";
         }else{
             $len = file_put_contents($cache_file, $value);
             if (strlen($value) == $len) {

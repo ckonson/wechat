@@ -4,12 +4,22 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Application	/Users/kontem/workspace/github_project/wechat/src/application.php	/^class Application$/;"	class	line:14
-getToken	/Users/kontem/workspace/github_project/wechat/src/application.php	/^    public function getToken($appId, $secret)$/;"	function	line:16
-result	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $result = '';$/;"	variable	line:18
-AccessToken_object	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $AccessToken_object = new AccessToken($appId, $secret);$/;"	variable	line:19
-cache_key	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $cache_key = md5($appId.$secret);$/;"	variable	line:20
-cache_obj	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $cache_obj = new FileCache();$/;"	variable	line:21
-cache_token	/Users/kontem/workspace/github_project/wechat/src/application.php	/^        $cache_token = $cache_obj->getKey($cache_key);$/;"	variable	line:22
-result	/Users/kontem/workspace/github_project/wechat/src/application.php	/^            $result = $AccessToken_object->getToken();$/;"	variable	line:24
-result	/Users/kontem/workspace/github_project/wechat/src/application.php	/^            $result = $cache_token;$/;"	variable	line:27
+FileCache	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^class FileCache$/;"	class	line:11
+cache_path	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    protected $cache_path = '';$/;"	variable	line:13
+cache_path	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    protected $cache_path = '';$/;"	variable	line:13
+cache_time	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    protected $cache_time = '';$/;"	variable	line:14
+cache_time	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    protected $cache_time = '';$/;"	variable	line:14
+__construct	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    public function __construct(array $params = null)$/;"	function	line:15
+params	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    public function __construct(array $params = null)$/;"	variable	line:15
+cache_path	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^        $this->cache_path = $params['cache_path'];$/;"	variable	line:17
+cache_time	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^        $this->cache_time = $params['cache_time'];$/;"	variable	line:18
+init	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    public function init()$/;"	function	line:21
+cache_path	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^            $this->cache_path = '_wechat_cache';$/;"	variable	line:26
+getKey	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    public function getKey($key = '')$/;"	function	line:30
+result	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^        $result = '';$/;"	variable	line:32
+cache_file	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^        $cache_file = $this->cache_path.$key;$/;"	variable	line:36
+result	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^            $result = file_get_contents($cache_file);$/;"	variable	line:38
+setkey	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    public function setkey($key = '', $value = '')$/;"	function	line:43
+value	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    public function setkey($key = '', $value = '')$/;"	variable	line:43
+cache_file	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^        $cache_file = $this->cache_path.$key$/;"	variable	line:48
+len	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^            $len = file_put_contents($cache_file, $value);$/;"	variable	line:53
