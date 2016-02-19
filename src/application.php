@@ -9,25 +9,37 @@
 namespace CkWechat;
 
 use CkWechat\Core\AccessToken;
+use CkWechat\Core;
 use CkWechat\Cache\FileCache;
 
 class Application
 {
-
-    public function getToken($appId, $secret)
+    protected $appId;
+    protected $secret;
+    protected $access_token;
+    public function __construct($appId, $secret)
+    {
+        $this->appId = $appId;
+        $this->secret = $secret;
+    }
+    public function getToken()
     {
         $result = '';
-        $AccessToken_object = new AccessToken($appId, $secret);
-        $cache_key = md5($appId.$secret);
+        $AccessToken_object = new AccessToken($this->appId, $this->secret);
+        $cache_key = md5($this->appId.$this->secret);
         $cache_obj = new FileCache();
         $cache_token = $cache_obj->getKey($cache_key);
         if (!$cache_token) {
             $result = $AccessToken_object->getToken();
-            $cache_obj->setkey($cache_key,$result);
-        }else{
+            $cache_obj->setkey($cache_key, $result);
+        } else {
             $result = $cache_token;
         }
-
+        $this->access_token = $result;
         return $result;
+    }
+    public function getWechatBackIps()
+    {
+        return (new Core\GetBackIps($this->access_token))->getIps();
     }
 }
