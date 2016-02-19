@@ -23,7 +23,7 @@ class FileCache
     {
         if (!empty($this->cache_path) && !is_dir($this->cache_path)) {
             mkdir($this->cache_path, 0755);
-        } elseif (empty($this->cache_path)) {
+        } elseif (!is_dir($this->cache_path)) {
             $this->cache_path = '_wechat_cache';
             mkdir($this->cache_path, 0755);
         }

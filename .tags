@@ -1,3 +1,11 @@
+GetBackIps	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^class GetBackIps$/;"	class	line:14
+access_token	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^    protected $access_token = '';$/;"	variable	line:16
+access_token	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^    protected $access_token = '';$/;"	variable	line:16
+__construct	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^    public function __construct($access_token)$/;"	function	line:17
+access_token	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^      $this->access_token = $access_token;$/;"	variable	line:19
+getIps	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^    public function getIps()$/;"	function	line:22
+params	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^      $params = array($/;"	variable	line:24
+http	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^      $http = new Http();$/;"	variable	line:27
 FileCache	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^class FileCache$/;"	class	line:11
 cache_path	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    protected $cache_path = '';$/;"	variable	line:13
 cache_path	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    protected $cache_path = '';$/;"	variable	line:13
@@ -19,11 +27,3 @@ setkey	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^ 
 value	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^    public function setkey($key = '', $value = '')$/;"	variable	line:44
 cache_file	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^        $this->cache_file = $this->cache_path.DIRECTORY_SEPARATOR.$key;$/;"	variable	line:49
 len	/Users/kontem/workspace/github_project/wechat/src/Cache/FileCache.php	/^            $len = file_put_contents($this->cache_file, $value);$/;"	variable	line:54
-GetBackIps	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^class GetBackIps$/;"	class	line:14
-access_token	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^    protected $access_token = '';$/;"	variable	line:16
-access_token	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^    protected $access_token = '';$/;"	variable	line:16
-__construct	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^    public function __construct($access_token)$/;"	function	line:17
-access_token	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^      $this->access_token = $access_token;$/;"	variable	line:19
-getIps	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^    public function getIps()$/;"	function	line:22
-params	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^      $params = array($/;"	variable	line:24
-http	/Users/kontem/workspace/github_project/wechat/src/Core/GetBackIps.php	/^      $http = new Http();$/;"	variable	line:27
