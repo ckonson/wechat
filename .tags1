@@ -4,20 +4,22 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Application	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^class Application$/;"	class	line:15
-appId	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^    protected $appId;$/;"	variable	line:17
-secret	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^    protected $secret;$/;"	variable	line:18
-access_token	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^    protected $access_token;$/;"	variable	line:19
-__construct	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^    public function __construct($appId, $secret)$/;"	function	line:20
-appId	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^        $this->appId = $appId;$/;"	variable	line:22
-secret	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^        $this->secret = $secret;$/;"	variable	line:23
-getToken	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^    public function getToken()$/;"	function	line:25
-result	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^        $result = '';$/;"	variable	line:27
-AccessToken_object	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^        $AccessToken_object = new AccessToken($this->appId, $this->secret);$/;"	variable	line:28
-cache_key	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^        $cache_key = md5($this->appId.$this->secret);$/;"	variable	line:29
-cache_obj	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^        $cache_obj = new FileCache();$/;"	variable	line:30
-cache_token	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^        $cache_token = $cache_obj->getKey($cache_key);$/;"	variable	line:31
-result	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^            $result = $AccessToken_object->getToken();$/;"	variable	line:33
-result	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^            $result = $cache_token;$/;"	variable	line:36
-access_token	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^        $this->access_token = $result;$/;"	variable	line:38
-getWechatBackIps	/Users/kontem/workspace/github_project/wechat/src/Application.php	/^    public function getWechatBackIps()$/;"	function	line:41
+Application	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^class Application$/;"	class	line:15
+appId	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^    protected $appId;$/;"	variable	line:17
+secret	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^    protected $secret;$/;"	variable	line:18
+access_token	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^    protected $access_token;$/;"	variable	line:19
+__construct	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^    public function __construct($appId, $secret)$/;"	function	line:20
+appId	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $this->appId = $appId;$/;"	variable	line:22
+secret	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $this->secret = $secret;$/;"	variable	line:23
+getToken	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^    public function getToken()$/;"	function	line:25
+result	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $result = '';$/;"	variable	line:27
+AccessToken_object	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $AccessToken_object = new AccessToken($this->appId, $this->secret);$/;"	variable	line:28
+cache_key	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $cache_key = md5($this->appId.$this->secret);$/;"	variable	line:29
+cache_obj	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $cache_obj = new FileCache();$/;"	variable	line:30
+cache_token	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $cache_token = $cache_obj->getKey($cache_key);$/;"	variable	line:31
+result	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^            $result = $AccessToken_object->getToken();$/;"	variable	line:33
+result	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^            $result = $cache_token;$/;"	variable	line:36
+tmp_result	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $tmp_result = array();$/;"	variable	line:38
+tmp_result	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $tmp_result = json_decode($result,true);$/;"	variable	line:39
+access_token	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^        $this->access_token = isset($tmp_result['access_token'])?(string)$tmp_result['access_token']:'';$/;"	variable	line:40
+getWechatBackIps	/Users/kontem/workspace/github_project/wechat/test/vendor/kontem/wechat/src/application.php	/^    public function getWechatBackIps()$/;"	function	line:43
