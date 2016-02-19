@@ -12,4 +12,5 @@ class ApiUrl
 {
     const AccessToken = 'https://api.weixin.qq.com/cgi-bin/token';
     const BackIps = 'https://api.weixin.qq.com/cgi-bin/getcallbackip';
+    const CreateMenu = 'https://api.weixin.qq.com/cgi-bin/menu/create';
 }

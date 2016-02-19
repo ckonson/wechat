@@ -8,8 +8,8 @@
 
 namespace CkWechat;
 
-use CkWechat\Core\AccessToken;
 use CkWechat\Core;
+use CkWechat\CustomMenu;
 use CkWechat\Cache\FileCache;
 
 class Application
@@ -25,7 +25,7 @@ class Application
     public function getToken()
     {
         $result = '';
-        $AccessToken_object = new AccessToken($this->appId, $this->secret);
+        $AccessToken_object = new Core\AccessToken($this->appId, $this->secret);
         $cache_key = md5($this->appId.$this->secret);
         $cache_obj = new FileCache();
         $cache_token = $cache_obj->getKey($cache_key);
@@ -41,5 +41,9 @@ class Application
     public function getWechatBackIps()
     {
         return (new Core\GetBackIps($this->access_token))->getIps();
+    }
+    public function createMenu()
+    {
+        return (new CustomMenu\createMenu($this->access_token))->add();
     }
 }
