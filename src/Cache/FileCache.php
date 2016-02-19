@@ -12,6 +12,7 @@ class FileCache
 {
     protected $cache_path = '';
     protected $cache_time = '';
+    protected $cache_file_name = '';
     public function __construct(array $params = null)
     {
         $this->cache_path = $params['cache_path'];
@@ -33,9 +34,9 @@ class FileCache
         if (empty($key)) {
             #TODO
         }
-        $cache_file = $this->cache_path.$key;
-        if (!empty($key) && file_exists($cache_file)) {
-            $result = file_get_contents($cache_file);
+        $this->cache_file = $this->cache_path.DIRECTORY_SEPARATOR.$key;
+        if (!empty($key) && file_exists($this->cache_file)) {
+            $result = file_get_contents($this->cache_file);
         } else {
             #TODO
         }
@@ -45,12 +46,12 @@ class FileCache
         if (empty($key) || empty($value)) {
            #TODO
         }
-        $cache_file = $this->cache_path.$key;
-        if (!is_writable(dirname($cache_file))) {
+        $this->cache_file = $this->cache_path.DIRECTORY_SEPARATOR.$key;
+        if (!is_writable(dirname($this->cache_file))) {
             #TODO
             echo "缓存文件写入失败";
         }else{
-            $len = file_put_contents($cache_file, $value);
+            $len = file_put_contents($this->cache_file, $value);
             if (strlen($value) == $len) {
               return true;
             }

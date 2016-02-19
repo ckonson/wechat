@@ -13,6 +13,7 @@ use CkWechat\Cache\FileCache;
 
 class Application
 {
+
     public function getToken($appId, $secret)
     {
         $result = '';
