@@ -59,15 +59,15 @@ class CreateMenu
         ),
       ),
     ));
-    echo "\n";
-    echo json_encode($post_data);
-    echo "\n";
+    #echo "\n";
+    #echo json_encode($post_data);
+    #echo "\n";
 
         $params = array(
         'access_token' => $this->access_token,
       );
         $http = new Core\Http();
-
-        return $http->post(ApiUrl::CreateMenu, $params, $post_data);
+        #fix wechat api rule post body is json string and JSON_UNESCAPED_UNICODE
+        return $http->post(ApiUrl::CreateMenu, $params, json_encode($post_data,JSON_UNESCAPED_UNICODE));
     }
 }
