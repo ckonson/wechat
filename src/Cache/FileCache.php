@@ -32,7 +32,7 @@ class FileCache
     {
         $stat = stat($this->cache_path.DIRECTORY_SEPARATOR.$key);
         $file_time = isset($stat['mtime']) ? $stat['mtime'] : $stat['atime'];
-        $check_time = $file_time + $cache_file_name;
+        $check_time = $file_time + $this->cache_file_name;
         if (time() > $check_time) {
             return false;
         }
