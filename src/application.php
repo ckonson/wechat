@@ -35,7 +35,10 @@ class Application
         } else {
             $result = $cache_token;
         }
-        $this->access_token = $result;
+        $temp_result = array();
+        $temp_result = json_decode($result, true);
+        $this->access_token = isset($temp_result['access_token']) ? $temp_result['access_token'] : '';
+
         return $result;
     }
     public function getWechatBackIps()
