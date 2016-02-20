@@ -55,7 +55,7 @@ class CreateMenu
         array(
           'name' => '菜单',
           'sub_button' => array(
-            'type' => 'view', 'name' => '搜索', 'url' => 'http://www.soso.com/',
+            array('type' => 'view', 'name' => '搜索', 'url' => 'http://www.soso.com/',)
         ),
       ),
     ));
