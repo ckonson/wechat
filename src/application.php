@@ -48,6 +48,9 @@ class Application
     public function createMenu()
     {
         #TODO create post data
+        if (empty($this->access_token)) {
+            $this->getToken();
+        }
         return (new CustomMenu\createMenu($this->access_token))->add();
     }
 }
