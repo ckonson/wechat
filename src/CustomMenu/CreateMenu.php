@@ -59,9 +59,9 @@ class CreateMenu
         ),
       ),
     ));
-    #echo "\n";
-    #echo json_encode($post_data);
-    #echo "\n";
+    echo "\n";
+    echo json_encode($post_data);
+    echo "\n";
 
         $params = array(
         'access_token' => $this->access_token,
