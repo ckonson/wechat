@@ -8,8 +8,6 @@
 
 namespace CkWechat;
 
-use CkWechat\Core;
-use CkWechat\CustomMenu;
 use CkWechat\Cache\FileCache;
 
 class Application
@@ -45,12 +43,18 @@ class Application
     {
         return (new Core\GetBackIps($this->access_token))->getIps();
     }
-    public function createMenu()
+    public function createMenu($menu_data)
     {
+        json_decode($menu_data);
+        if ((json_last_error() == JSON_ERROR_NONE) == false) {
+            #如果不是json 字符串 应为一个数组 并且 进行json_encode
+          $menu_data = json_encode($menu_data, JSON_UNESCAPED_UNICODE);
+        }
         #TODO create post data
         if (empty($this->access_token)) {
             $this->getToken();
         }
-        return (new CustomMenu\createMenu($this->access_token))->add();
+
+        return (new CustomMenu\createMenu($this->access_token))->add($menu_data);
     }
 }
