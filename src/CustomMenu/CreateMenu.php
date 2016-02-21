@@ -25,4 +25,18 @@ class CreateMenu
         #fix wechat api rule post body is json string and JSON_UNESCAPED_UNICODE
         return $http->post(ApiUrl::CreateMenu, $params, $menu_data);
     }
+    public function get()
+    {
+      $params = array('access_token' => $this->access_token);
+      $http = new Core\Http();
+      #fix wechat api rule post body is json string and JSON_UNESCAPED_UNICODE
+      return $http->get(ApiUrl::GetMenu, $params);
+    }
+    public function delete()
+    {
+      $params = array('access_token' => $this->access_token);
+      $http = new Core\Http();
+      #fix wechat api rule post body is json string and JSON_UNESCAPED_UNICODE
+      return $http->get(ApiUrl::DeleteMenu, $params);
+    }
 }
