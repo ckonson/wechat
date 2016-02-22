@@ -15,4 +15,5 @@ class ApiUrl
     const CreateMenu = 'https://api.weixin.qq.com/cgi-bin/menu/create';
     const GetMenu = 'https://api.weixin.qq.com/cgi-bin/menu/get';
     const DeleteMenu = 'https://api.weixin.qq.com/cgi-bin/menu/delete';
+    const GetUserList ='https://api.weixin.qq.com/cgi-bin/user/get';
 }
