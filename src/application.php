@@ -63,6 +63,6 @@ class Application
     }
     public function getUserInfo($openid)
     {
-        return (new User\User($this->access_token))->getUserInfo();
+        return (new User\User($this->access_token))->getUserInfo($openid);
     }
 }
