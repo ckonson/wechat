@@ -57,4 +57,8 @@ class Application
 
         return (new CustomMenu\createMenu($this->access_token))->add($menu_data);
     }
+    public function getUserList()
+    {
+        return (new User\get($this->access_token))->get();
+    }
 }

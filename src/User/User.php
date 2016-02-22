@@ -13,6 +13,11 @@ use CkWechat\Core;
 
 class User
 {
+  protected $access_token;
+  public function __construct($access_token)
+  {
+      $this->access_token = $access_token;
+  }
   public function get()
   {
     $params = array('access_token' => $this->access_token);
