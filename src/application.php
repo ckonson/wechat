@@ -59,6 +59,6 @@ class Application
     }
     public function getUserList()
     {
-        return (new User\get($this->access_token))->get();
+        return (new User\User($this->access_token))->get();
     }
 }
