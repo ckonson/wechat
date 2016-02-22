@@ -66,17 +66,13 @@ class User
      *
      * @return jsonstring  demo {"errcode":0,"errmsg":"ok"}
      */
-    public function setUserMark($openid = '', $remark = '')
+    public function setUserMark($post_data)
     {
-        if (empty($openid)) {
-            #TODO
-        }
-        if (empty($remark)) {
+        if (empty($post_data)) {
             #TODO
         }
         $params = array('access_token' => $this->access_token);
         $http = new Core\Http();
-        $post_data = array('openid' => $openid, 'remark' => $remark);
 
         return $http->post(ApiUrl::SetUserMark, $params, $post_data);
     }
