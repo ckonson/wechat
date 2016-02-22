@@ -65,4 +65,8 @@ class Application
     {
         return (new User\User($this->access_token))->getUserInfo($openid);
     }
+    public function setUserMark($openid = '', $remark = '')
+    {
+        return (new User\User($this->access_token))->setUserMark($openid, $remark);
+    }
 }

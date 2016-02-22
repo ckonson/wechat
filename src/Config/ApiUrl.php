@@ -17,4 +17,5 @@ class ApiUrl
     const DeleteMenu = 'https://api.weixin.qq.com/cgi-bin/menu/delete';
     const GetUserList = 'https://api.weixin.qq.com/cgi-bin/user/get';
     const GetUserInfo = 'https://api.weixin.qq.com/cgi-bin/user/info';
+    const SetUserMark = 'https://api.weixin.qq.com/cgi-bin/user/info/updateremark';
 }
