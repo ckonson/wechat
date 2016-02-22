@@ -78,6 +78,6 @@ class User
         $http = new Core\Http();
         $post_data = array('openid' => $openid, 'remark' => $remark);
 
-        return $http->post(ApiUrl::CreateMenu, $params, $post_data);
+        return $http->post(ApiUrl::SetUserMark, $params, $post_data);
     }
 }
