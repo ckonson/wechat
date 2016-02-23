@@ -67,10 +67,16 @@ class Application
     }
     public function setUserMark($post_data)
     {
-        json_decode($post_data);
-        if ((json_last_error() == JSON_ERROR_NONE) == false) {
-            #如果不是json 字符串 应为一个数组 并且 进行json_encode
+        if (is_string($post_data)) {
+            json_decode($post_data);
+            if ((json_last_error() == JSON_ERROR_NONE) == false) {
+                //如果不是json 字符串 应为一个数组 并且 进行json_encode
+                $post_data = json_encode($post_data, JSON_UNESCAPED_UNICODE);
+            }
+        } elseif (is_array($post_data)) {
             $post_data = json_encode($post_data, JSON_UNESCAPED_UNICODE);
+        } else {
+            #TODO
         }
 
         return (new User\User($this->access_token))->setUserMark($post_data);

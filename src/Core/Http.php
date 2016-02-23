@@ -21,10 +21,10 @@ class Http
     }
     public function post($url, $url_params,$params)
     {
-        $xml = http_build_query($params);
+        #$xml = http_build_query($params);
         $target_url = $this->buildApiUrl($url, $url_params);
 
-        return $this->postXmlCurl($xml, $target_url);
+        return $this->postXmlCurl($params, $target_url);
     }
     public function buildApiUrl($url, $params)
     {
