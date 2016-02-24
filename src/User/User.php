@@ -30,7 +30,7 @@ class User
         $params = array('access_token' => $this->access_token);
         $http = new Core\Http();
         #fix wechat api rule post body is json string and JSON_UNESCAPED_UNICODE
-        return $http->get(ApiUrl::GetUserList, $params);
+        return $http->get(ApiUrl::GETUSERLIST, $params);
     }
     /**
      * 通过openid获取用户基本信息.
@@ -54,7 +54,7 @@ class User
         );
         $http = new Core\Http();
 
-        return $http->get(ApiUrl::GetUserInfo, $params);
+        return $http->get(ApiUrl::GETUSERINFO, $params);
     }
     /**
      * setting user remark.
@@ -74,6 +74,7 @@ class User
         $params = array('access_token' => $this->access_token);
         $http = new Core\Http();
 
-        return $http->post(ApiUrl::SetUserMark, $params, $post_data);
+        return $http->post(ApiUrl::SETUSERMARK, $params, $post_data);
     }
 }
+?>

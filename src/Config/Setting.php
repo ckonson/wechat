@@ -15,3 +15,4 @@ class Setting
   const CURL_PROXY_PORT='';
   const SSLCERT_PATH='';
 }
+?>

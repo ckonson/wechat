@@ -1,0 +1,61 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: kontem
+ * Date: 16/2/23
+ * Time: 18:25.
+ */
+
+namespace CkWechat\User;
+
+use CkWechat\Core;
+
+class Group extends Core\Base
+{
+    public function createGroups($post_data)
+    {
+        if (empty($post_data)) {
+            #TODO
+        }
+        $params = array('access_token' => $this->access_token);
+        $http = new Core\Http();
+
+        return $http->post(ApiUrl::CREATEGROUPS, $params, $post_data);
+    }
+    public function getGroups()
+    {
+        if (empty($post_data)) {
+            #TODO
+        }
+        $params = array('access_token' => $this->access_token);
+        $http = new Core\Http();
+
+        return $http->get(ApiUrl::GETGROUPS, $params);
+    }
+    public function getUserGroups($post_data)
+    {
+        if (empty($post_data)) {
+            #TODO
+        }
+        $params = array('access_token' => $this->access_token);
+        $http = new Core\Http();
+
+        return $http->post(ApiUrl::GETUSERGROUPS, $params, $post_data);
+    }
+    /**
+     * call wechat api to update group name
+     * @method updateUserGroups
+     * @param  array            $post_data {"group":{"id":108,"name":"test2_modify2"}}
+     * @return jsonstring            {"errcode": 0, "errmsg": "ok"}
+     */
+    public function updateUserGroups(array $post_data)
+    {
+        if (empty($post_data)) {
+            #TODO
+        }
+        $params = array('access_token' => $this->access_token);
+        $http = new Core\Http();
+
+        return $http->post(ApiUrl::GETUSERGROUPS, $params, $post_data);
+    }
+}

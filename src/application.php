@@ -9,6 +9,7 @@
 namespace CkWechat;
 
 use CkWechat\Cache\FileCache;
+use CkWechat\Common\Common as Common
 
 class Application
 {
@@ -43,19 +44,10 @@ class Application
     {
         return (new Core\GetBackIps($this->access_token))->getIps();
     }
-    public function createMenu($menu_data)
+    public function createMenu($post_data)
     {
-        json_decode($menu_data);
-        if ((json_last_error() == JSON_ERROR_NONE) == false) {
-            #如果不是json 字符串 应为一个数组 并且 进行json_encode
-          $menu_data = json_encode($menu_data, JSON_UNESCAPED_UNICODE);
-        }
-        #TODO create post data
-        if (empty($this->access_token)) {
-            $this->getToken();
-        }
-
-        return (new CustomMenu\createMenu($this->access_token))->add($menu_data);
+        $post_data = Common::toJsonStr($post_data);
+        return (new CustomMenu\createMenu($this->access_token))->add($post_data);
     }
     public function getUserList()
     {
@@ -67,18 +59,8 @@ class Application
     }
     public function setUserMark($post_data)
     {
-        if (is_string($post_data)) {
-            json_decode($post_data);
-            if ((json_last_error() == JSON_ERROR_NONE) == false) {
-                //如果不是json 字符串 应为一个数组 并且 进行json_encode
-                $post_data = json_encode($post_data, JSON_UNESCAPED_UNICODE);
-            }
-        } elseif (is_array($post_data)) {
-            $post_data = json_encode($post_data, JSON_UNESCAPED_UNICODE);
-        } else {
-            #TODO
-        }
-
-        return (new User\User($this->access_token))->setUserMark($post_data);
+        $post_string = Common::toJsonStr($post_data);
+        return (new User\User($this->access_token))->setUserMark($post_string);
     }
 }
+?>

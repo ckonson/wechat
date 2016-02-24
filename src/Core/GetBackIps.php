@@ -25,6 +25,7 @@ class GetBackIps
         'access_token' => $this->access_token,
       );
       $http = new Http();
-      return $http->get(ApiUrl::BackIps, $params);
+      return $http->get(ApiUrl::BACKIPS, $params);
     }
 }
+?>

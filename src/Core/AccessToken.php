@@ -27,6 +27,7 @@ class AccessToken
           'grant_type' => 'client_credential',
         );
         $http = new Http();
-        return $http->get(ApiUrl::AccessToken, $params);
+        return $http->get(ApiUrl::ACCESSTOKEN, $params);
     }
 }
+?>
