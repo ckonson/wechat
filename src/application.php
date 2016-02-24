@@ -62,5 +62,9 @@ class Application
         $post_string = Common::toJsonStr($post_data);
         return (new User\User($this->access_token))->setUserMark($post_string);
     }
+    public function getGroups()
+    {
+      return (new User\Group($this->appId,$this->secret)->getGroups();
+    }
 }
 ?>
