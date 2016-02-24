@@ -9,7 +9,7 @@
 namespace CkWechat;
 
 use CkWechat\Cache\FileCache;
-use CkWechat\Common\Common as Common
+use CkWechat\Common\Common as Common;
 
 class Application
 {
