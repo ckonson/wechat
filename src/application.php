@@ -64,7 +64,7 @@ class Application
     }
     public function getGroups()
     {
-      return (new User\Group($this->appId,$this->secret)->getGroups();
+      return (new User\Group($this->appId,$this->secret))->getGroups();
     }
 }
 ?>

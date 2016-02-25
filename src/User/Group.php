@@ -8,6 +8,7 @@
 
 namespace CkWechat\User;
 
+use CkWechat\Config\ApiUrl;
 use CkWechat\Core;
 
 class Group extends Core\Base
@@ -56,6 +57,16 @@ class Group extends Core\Base
         $params = array('access_token' => $this->access_token);
         $http = new Core\Http();
 
-        return $http->post(ApiUrl::GETUSERGROUPS, $params, $post_data);
+        return $http->post(ApiUrl::UPDATEGROUPS, $params, $post_data);
+    }
+    public function updateUserGroups($post_data='')
+    {
+      if (empty($post_data)) {
+          #TODO
+      }
+      $params = array('access_token' => $this->access_token);
+      $http = new Core\Http();
+
+      return $http->post(ApiUrl::UPDATEUSERGROUPS, $params, $post_data);
     }
 }

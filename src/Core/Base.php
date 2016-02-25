@@ -8,6 +8,8 @@
 
 namespace CkWechat\Core;
 
+use CkWechat\Common\Common as Common;
+
 class Base
 {
     protected $appId;
@@ -17,6 +19,13 @@ class Base
     {
         $this->appId = $appId;
         $this->secret = $secret;
-        $this->access_token = (new AccessToken($this->appId, $this->secret))->getToken();
+        $token_json = (new AccessToken($this->appId, $this->secret))->getToken();
+        if (Common::checkJson($token_json)) {
+            $access_token_arr = json_decode($token_json,true);
+            $this->access_token = $access_token_arr['access_token'];
+        }else{
+            #TODO
+        }
     }
 }
+?>

@@ -26,5 +26,18 @@ class Common
 
         return $data;
     }
+    public static function checkJson($string)
+    {
+        if (is_string($data)) {
+            json_decode($data);
+            if ((json_last_error() == JSON_ERROR_NONE) == false) {
+                //如果不是json 字符串 应为一个数组 并且 进行json_encode
+              return false;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
 }
-?>
