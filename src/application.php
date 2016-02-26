@@ -20,6 +20,7 @@ class Application
     {
         $this->appId = $appId;
         $this->secret = $secret;
+        $this->getToken();
     }
     public function getToken()
     {
@@ -47,6 +48,7 @@ class Application
     public function createMenu($post_data)
     {
         $post_data = Common::toJsonStr($post_data);
+
         return (new CustomMenu\createMenu($this->access_token))->add($post_data);
     }
     public function getUserList()
@@ -60,11 +62,46 @@ class Application
     public function setUserMark($post_data)
     {
         $post_string = Common::toJsonStr($post_data);
+
         return (new User\User($this->access_token))->setUserMark($post_string);
     }
     public function getGroups()
     {
-      return (new User\Group($this->appId,$this->secret))->getGroups();
+        return (new User\Group($this->access_token))->getGroups();
+    }
+    public function createGroups($post_data)
+    {
+        $post_string = Common::toJsonStr($post_data);
+        return (new User\Group($this->access_token))->createGroups($post_string);
+    }
+    public function getUserGroups($post_data)
+    {
+        $post_string = Common::toJsonStr($post_data);
+        return (new User\Group($this->access_token))->getUserGroups($post_string);
+    }
+    public function updateGroups($post_data)
+    {
+        $post_string = Common::toJsonStr($post_data);
+        return (new User\Group($this->access_token))->updateGroups($post_string);
+    }
+    public function updateUserGroups($post_data)
+    {
+        $post_string = Common::toJsonStr($post_data);
+        return (new User\Group($this->access_token))->updateUserGroups($post_string);
+    }
+    public function __call($name, $arguments)
+    {
+        if ($name === 'call') {
+            $count = substr_count($arguments[0], '\\');
+            if ($count == 2) {
+                $class_info = str_split($arguments[0], strrpos($arguments[0], '\\'));
+                $class_name = __NAMESPACE__.'\\'.$class_info[0];
+                $action_name = trim($class_info[1], '\\');
+                return (new $class_name($this->appId, $this->secret))->$action_name(array_shift($arguments));
+                #echo call_user_func_array(array(__NAMESPACE__."\User\Group", $action_name), array_shift($arguments));
+            } else {
+                # code...
+            }
+        }
     }
 }
-?>

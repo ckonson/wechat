@@ -26,7 +26,7 @@ class Common
 
         return $data;
     }
-    public static function checkJson($string)
+    public static function checkJson($data)
     {
         if (is_string($data)) {
             json_decode($data);
@@ -39,5 +39,16 @@ class Common
         }
 
         return false;
+    }
+    public static function getDeclaredClasses()
+    {
+        return array_filter(
+          get_declared_classes(),
+          function ($className) {
+              return !call_user_func(
+                  array(new \ReflectionClass($className), 'isInternal')
+              );
+          }
+        );
     }
 }

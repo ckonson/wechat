@@ -11,14 +11,8 @@ namespace CkWechat\Core;
 use CkWechat\Core\AccessToken;
 use CkWechat\Config\ApiUrl;
 
-class GetBackIps
+class GetBackIps extends Base
 {
-    protected $access_token = '';
-    public function __construct($access_token)
-    {
-      $this->access_token = $access_token;
-      #TODO check token
-    }
     public function getIps()
     {
       $params = array(

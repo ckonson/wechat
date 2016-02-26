@@ -11,13 +11,8 @@ namespace CkWechat\User;
 use CkWechat\Config\ApiUrl;
 use CkWechat\Core;
 
-class User
+class User extends Core\Base
 {
-    protected $access_token;
-    public function __construct($access_token)
-    {
-        $this->access_token = $access_token;
-    }
     /**
      * 获取用户列表.
      *

@@ -49,7 +49,7 @@ class Group extends Core\Base
      * @param  array            $post_data {"group":{"id":108,"name":"test2_modify2"}}
      * @return jsonstring            {"errcode": 0, "errmsg": "ok"}
      */
-    public function updateUserGroups(array $post_data)
+    public function updateGroups($post_data)
     {
         if (empty($post_data)) {
             #TODO
@@ -68,5 +68,15 @@ class Group extends Core\Base
       $http = new Core\Http();
 
       return $http->post(ApiUrl::UPDATEUSERGROUPS, $params, $post_data);
+    }
+    public function batchUpdateUserGroups($post_data='')
+    {
+      if (empty($post_data)) {
+          #TODO
+      }
+      $params = array('access_token' => $this->access_token);
+      $http = new Core\Http();
+
+      return $http->post(ApiUrl::BATCHUPDATEUSERSGROUPS, $params, $post_data);
     }
 }
