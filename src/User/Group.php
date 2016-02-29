@@ -44,10 +44,13 @@ class Group extends Core\Base
         return $http->post(ApiUrl::GETUSERGROUPS, $params, $post_data);
     }
     /**
-     * call wechat api to update group name
+     * call wechat api to update group name.
+     *
      * @method updateUserGroups
-     * @param  array            $post_data {"group":{"id":108,"name":"test2_modify2"}}
-     * @return jsonstring            {"errcode": 0, "errmsg": "ok"}
+     *
+     * @param array $post_data {"group":{"id":108,"name":"test2_modify2"}}
+     *
+     * @return jsonstring {"errcode": 0, "errmsg": "ok"}
      */
     public function updateGroups($post_data)
     {
@@ -59,24 +62,43 @@ class Group extends Core\Base
 
         return $http->post(ApiUrl::UPDATEGROUPS, $params, $post_data);
     }
-    public function updateUserGroups($post_data='')
+    public function updateUserGroups($post_data = '')
     {
-      if (empty($post_data)) {
-          #TODO
-      }
-      $params = array('access_token' => $this->access_token);
-      $http = new Core\Http();
+        if (empty($post_data)) {
+            #TODO
+        }
+        $params = array('access_token' => $this->access_token);
+        $http = new Core\Http();
 
-      return $http->post(ApiUrl::UPDATEUSERGROUPS, $params, $post_data);
+        return $http->post(ApiUrl::UPDATEUSERGROUPS, $params, $post_data);
     }
-    public function batchUpdateUserGroups($post_data='')
+    public function batchUpdateUserGroups($post_data = '')
     {
-      if (empty($post_data)) {
-          #TODO
-      }
-      $params = array('access_token' => $this->access_token);
-      $http = new Core\Http();
+        if (empty($post_data)) {
+            #TODO
+        }
+        $params = array('access_token' => $this->access_token);
+        $http = new Core\Http();
 
-      return $http->post(ApiUrl::BATCHUPDATEUSERSGROUPS, $params, $post_data);
+        return $http->post(ApiUrl::BATCHUPDATEUSERSGROUPS, $params, $post_data);
+    }
+    /**
+     * delete wechat user groups by id.
+     *
+     * @method deleteGroups
+     *
+     * @param string $value {"group":{"id":108}}
+     *
+     * @return jsonstring {"errcode": 0, "errmsg": "ok"}
+     */
+    public function deleteGroups($post_data)
+    {
+        if (empty($post_data)) {
+            #TODO
+        }
+        $params = array('access_token' => $this->access_token);
+        $http = new Core\Http();
+
+        return $http->post(ApiUrl::DELETEGROUPS, $params, $post_data);
     }
 }

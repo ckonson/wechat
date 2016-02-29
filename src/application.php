@@ -72,22 +72,32 @@ class Application
     public function createGroups($post_data)
     {
         $post_string = Common::toJsonStr($post_data);
+
         return (new User\Group($this->access_token))->createGroups($post_string);
     }
     public function getUserGroups($post_data)
     {
         $post_string = Common::toJsonStr($post_data);
+
         return (new User\Group($this->access_token))->getUserGroups($post_string);
     }
     public function updateGroups($post_data)
     {
         $post_string = Common::toJsonStr($post_data);
+
         return (new User\Group($this->access_token))->updateGroups($post_string);
     }
     public function updateUserGroups($post_data)
     {
         $post_string = Common::toJsonStr($post_data);
+
         return (new User\Group($this->access_token))->updateUserGroups($post_string);
+    }
+    public function deleteGroups($group_id = 0)
+    {
+        $post_data = array('group' => array('id' => $group_id));
+        $post_string = Common::toJsonStr($post_data);
+        return (new User\Group($this->access_token)->deleteGroups($post_string));
     }
     public function __call($name, $arguments)
     {
@@ -97,6 +107,7 @@ class Application
                 $class_info = str_split($arguments[0], strrpos($arguments[0], '\\'));
                 $class_name = __NAMESPACE__.'\\'.$class_info[0];
                 $action_name = trim($class_info[1], '\\');
+
                 return (new $class_name($this->appId, $this->secret))->$action_name(array_shift($arguments));
                 #echo call_user_func_array(array(__NAMESPACE__."\User\Group", $action_name), array_shift($arguments));
             } else {
