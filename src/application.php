@@ -97,7 +97,8 @@ class Application
     {
         $post_data = array('group' => array('id' => $group_id));
         $post_string = Common::toJsonStr($post_data);
-        return (new User\Group($this->access_token)->deleteGroups($post_string));
+
+        return (new User\Group($this->access_token))->deleteGroups($post_string);
     }
     public function __call($name, $arguments)
     {
