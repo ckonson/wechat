@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: kontem
  * Date: 16/3/2
- * Time: 16:21
+ * Time: 16:21.
  */
 
 namespace CkWechat\Core;
-
 
 class Container
 {
@@ -15,10 +14,12 @@ class Container
     public $di_objects = array();
     private $cache_list = array();
     /**
-     * [__set description]
+     * [__set description].
+     *
      * @method __set
-     * @param  [type] $k [description]
-     * @param  [type] $c [description]
+     *
+     * @param [type] $k [description]
+     * @param [type] $c [description]
      */
     public function __set($k, $c)
     {
@@ -32,10 +33,13 @@ class Container
         }
     }
     /**
-     * [__get description]
+     * [__get description].
+     *
      * @method __get
-     * @param  [type] $k [description]
-     * @return [type]    [description]
+     *
+     * @param [type] $k [description]
+     *
+     * @return [type] [description]
      */
     public function __get($k)
     {
@@ -48,6 +52,7 @@ class Container
             if ($temp_cache_obj == false) {
                 $obj = $this->s[$k]($this);
                 $this->setCache($k, $obj);
+
                 return $obj;
             } else {
                 return $temp_cache_obj;
@@ -57,10 +62,13 @@ class Container
         return;
     }
     /**
-     * [getCache description]
+     * [getCache description].
+     *
      * @method getCache
-     * @param  [type]   $key [description]
-     * @return [type]        [description]
+     *
+     * @param [type] $key [description]
+     *
+     * @return [type] [description]
      */
     public function getCache($key)
     {
@@ -71,10 +79,12 @@ class Container
         return false;
     }
     /**
-     * [setCache description]
+     * [setCache description].
+     *
      * @method setCache
-     * @param  [type]   $key   [description]
-     * @param  [type]   $value [description]
+     *
+     * @param [type] $key   [description]
+     * @param [type] $value [description]
      */
     public function setCache($key, $value)
     {

@@ -15,7 +15,9 @@ class User extends Core\Base
 {
     /**
      * 获取用户列表.
+     *
      * @method      get
+     *
      * @return jsonstring {"total":1,"count":1,"data":{"openid":["用户openid"]},"next_openid":"oY9n7vs-kSLoQz49KaL3jwY-t0hM"}
      */
     public function getUser()
@@ -24,13 +26,15 @@ class User extends Core\Base
     }
     /**
      * 通过openid获取用户基本信息.
+     *
      * @method      getUserInfo
+     *
      * @param string $openid 微信用户openid
      * @param string $lang   zh_CN 简体，zh_TW 繁体，en 英语
      *
      * @return [type] [description]
      */
-    public function getUserInfo($openid='', $lang = 'zh_CN')
+    public function getUserInfo($openid = '', $lang = 'zh_CN')
     {
         if (empty($openid)) {
             #TODO
@@ -40,6 +44,7 @@ class User extends Core\Base
           'openid' => $openid,
           'lang' => $lang,
         );
+
         return $this->http->get(ApiUrl::GETUSERINFO, $params);
     }
     /**
@@ -49,7 +54,8 @@ class User extends Core\Base
      *
      * @param string $openid user wechat openid
      * @param string $remark
-     * @return jsonstring  demo {"errcode":0,"errmsg":"ok"}
+     *
+     * @return jsonstring demo {"errcode":0,"errmsg":"ok"}
      */
     public function updateRemark($post_data)
     {
@@ -61,4 +67,3 @@ class User extends Core\Base
         return $this->http->post(ApiUrl::UPDATEREMARK, $params, $post_data);
     }
 }
-?>
