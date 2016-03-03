@@ -11,17 +11,30 @@ namespace CkWechat;
 use CkWechat\Cache\FileCache;
 use CkWechat\Common\Common as Common;
 
-class Application
+class Application extends Core\Container
 {
     protected $appId;
     protected $secret;
     protected $access_token;
-    public function __construct($appId, $secret)
+
+    public function __construct(array $config)
     {
         $this->appId = $appId;
         $this->secret = $secret;
         $this->getToken();
+        $access_token = $this->access_token;
+        $this->group = function () use ($access_token) {
+          return new User\Group($access_token);
+        };
+        echo Service\GroupService::class;
     }
+
+    public function register()
+    {
+        # code...
+        $providers = array(Service\GroupService::class);
+    }
+
     public function getToken()
     {
         $result = '';
@@ -40,80 +53,5 @@ class Application
         $this->access_token = isset($temp_result['access_token']) ? $temp_result['access_token'] : '';
 
         return $result;
-    }
-    public function getWechatBackIps()
-    {
-        return (new Core\GetBackIps($this->access_token))->getIps();
-    }
-    public function createMenu($post_data)
-    {
-        $post_data = Common::toJsonStr($post_data);
-
-        return (new CustomMenu\createMenu($this->access_token))->add($post_data);
-    }
-    public function getUserList()
-    {
-        return (new User\User($this->access_token))->get();
-    }
-    public function getUserInfo($openid)
-    {
-        return (new User\User($this->access_token))->getUserInfo($openid);
-    }
-    public function setUserMark($post_data)
-    {
-        $post_string = Common::toJsonStr($post_data);
-
-        return (new User\User($this->access_token))->setUserMark($post_string);
-    }
-    public function getGroups()
-    {
-        return (new User\Group($this->access_token))->getGroups();
-    }
-    public function createGroups($post_data)
-    {
-        $post_string = Common::toJsonStr($post_data);
-
-        return (new User\Group($this->access_token))->createGroups($post_string);
-    }
-    public function getUserGroups($post_data)
-    {
-        $post_string = Common::toJsonStr($post_data);
-
-        return (new User\Group($this->access_token))->getUserGroups($post_string);
-    }
-    public function updateGroups($post_data)
-    {
-        $post_string = Common::toJsonStr($post_data);
-
-        return (new User\Group($this->access_token))->updateGroups($post_string);
-    }
-    public function updateUserGroups($post_data)
-    {
-        $post_string = Common::toJsonStr($post_data);
-
-        return (new User\Group($this->access_token))->updateUserGroups($post_string);
-    }
-    public function deleteGroups($group_id = 0)
-    {
-        $post_data = array('group' => array('id' => $group_id));
-        $post_string = Common::toJsonStr($post_data);
-
-        return (new User\Group($this->access_token))->deleteGroups($post_string);
-    }
-    public function __call($name, $arguments)
-    {
-        if ($name === 'call') {
-            $count = substr_count($arguments[0], '\\');
-            if ($count == 2) {
-                $class_info = str_split($arguments[0], strrpos($arguments[0], '\\'));
-                $class_name = __NAMESPACE__.'\\'.$class_info[0];
-                $action_name = trim($class_info[1], '\\');
-
-                return (new $class_name($this->appId, $this->secret))->$action_name(array_shift($arguments));
-                #echo call_user_func_array(array(__NAMESPACE__."\User\Group", $action_name), array_shift($arguments));
-            } else {
-                # code...
-            }
-        }
     }
 }

@@ -61,7 +61,7 @@ class User extends Core\Base
      *
      * @return jsonstring  demo {"errcode":0,"errmsg":"ok"}
      */
-    public function setUserMark($post_data)
+    public function updateRemark($post_data)
     {
         if (empty($post_data)) {
             #TODO
@@ -69,7 +69,7 @@ class User extends Core\Base
         $params = array('access_token' => $this->access_token);
         $http = new Core\Http();
 
-        return $http->post(ApiUrl::SETUSERMARK, $params, $post_data);
+        return $http->post(ApiUrl::UPDATEREMARK, $params, $post_data);
     }
 }
 ?>
