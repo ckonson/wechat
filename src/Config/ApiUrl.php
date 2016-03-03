@@ -12,12 +12,15 @@ class ApiUrl
 {
     const ACCESSTOKEN = 'https://api.weixin.qq.com/cgi-bin/token';
     const BACKIPS = 'https://api.weixin.qq.com/cgi-bin/getcallbackip';
+
     const CREATEMENU = 'https://api.weixin.qq.com/cgi-bin/menu/create';
     const GETMENU = 'https://api.weixin.qq.com/cgi-bin/menu/get';
     const DELETEMENU = 'https://api.weixin.qq.com/cgi-bin/menu/delete';
-    const GETUSERLIST = 'https://api.weixin.qq.com/cgi-bin/user/get';
+
+    const GETUSERS = 'https://api.weixin.qq.com/cgi-bin/user/get';
     const GETUSERINFO = 'https://api.weixin.qq.com/cgi-bin/user/info';
     const SETUSERMARK = 'https://api.weixin.qq.com/cgi-bin/user/info/updateremark';
+
     const UPDATEREMARK = 'https://api.weixin.qq.com/cgi-bin/user/info/updateremark';
     const CREATEGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/create';
     const GETGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/get';

@@ -12,32 +12,22 @@ use CkWechat\Config\Setting;
 
 class Http
 {
-    public function get($url, $params = null)
+    static public function get($url, $params = null)
     {
-        if (!empty($params)) {
-            $url = $this->buildApiUrl($url, $params);
+      if (!empty($params)) {
+          $url = self::buildApiUrl($url, $params);
 
-            return $this->postXmlCurl(array(), $url);
-        } else {
-            return $this->postXmlCurl(array(), $url);
-        }
+          return self::postXmlCurl(array(), $url);
+      } else {
+          return self::postXmlCurl(array(), $url);
+      }
     }
-    public function post($url, $url_params, $params)
+    static public function post($url, $params)
     {
-        #$xml = http_build_query($params);
-        $target_url = $this->buildApiUrl($url, $url_params);
-
-        return $this->postXmlCurl($params, $target_url);
-    }
-    public function _post($url, $params)
-    {
-        #$xml = http_build_query($params);
-        $target_url = $this->buildApiUrl($url, $url_params);
-
-        return $this->postXmlCurl($params, $target_url);
+        return self::postXmlCurl($params, $url);
     }
 
-    public function buildApiUrl($url, $params)
+    static public function buildApiUrl($url, $params)
     {
         $url .= '?'.http_build_query($params);
 

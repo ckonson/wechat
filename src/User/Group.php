@@ -8,8 +8,8 @@
 
 namespace CkWechat\User;
 
-use CkWechat\Config\ApiUrl;
 use CkWechat\Core;
+use CkWechat\Config\ApiUrl;
 use CkWechat\Common\Common;
 
 class Group extends Core\Base
@@ -23,18 +23,11 @@ class Group extends Core\Base
      *
      * @return jsonstring {"group": {"id": 107, "name": "test"}}
      */
-    public function createGroups($post_data = '')
+    public function createGroups($post_data)
     {
-        if (empty($post_data)) {
-            #TODO
-        }
-        if (Common::checkJson($post_data) == false) {
-            $post_data = Common::toJsonStr($post_data);
-        }
+        $url = $this->buildTokenUri(ApiUrl::CREATEGROUPS);
 
-        $params = array('access_token' => $this->access_token);
-
-        return $this->http->post(ApiUrl::CREATEGROUPS, $params, $post_data);
+        return Core\Http::post($url, $post_data);
     }
     /**
      * [getGroups description].
@@ -45,29 +38,22 @@ class Group extends Core\Base
      */
     public function getGroups()
     {
-        return $this->http->get($this->buildTokenUri(ApiUrl::GETGROUPS));
+        $url = $this->buildTokenUri(ApiUrl::GETGROUPS);
+        return Core\Http::get($url);
     }
     /**
      * [getUserGroups description].
      *
      * @method getUserGroups
      *
-     * @param [type] $post_data [description]
+     * @param jsonstring/array $post_data {"openid":"od8XIjsmk6QdVTETa9jLtGWA6KBc"}
      *
-     * @return [type] [description]
+     * @return jsonstring {"groupid": 102} or {"errcode":40003,"errmsg":"invalid openid"}
      */
     public function getUserGroups($post_data)
     {
-        if (empty($post_data)) {
-            #TODO
-        }
-        if (Common::checkJson($post_data) == false) {
-            $post_data = Common::toJsonStr($post_data);
-        }
-
-        $params = array('access_token' => $this->access_token);
-
-        return $this->http->post(ApiUrl::GETUSERGROUPS, $params, $post_data);
+        $url = $this->buildTokenUri(ApiUrl::GETUSERGROUPS);
+        return Core\Http::post($url, $post_data);
     }
     /**
      * call wechat api to update group name.
@@ -80,16 +66,7 @@ class Group extends Core\Base
      */
     public function updateGroups($post_data)
     {
-        if (empty($post_data)) {
-            #TODO
-        }
-        if (Common::checkJson($post_data) == false) {
-            $post_data = Common::toJsonStr($post_data);
-        }
-
-        $params = array('access_token' => $this->access_token);
-
-        return $this->http->post(ApiUrl::UPDATEGROUPS, $params, $post_data);
+        return Core\Http::post($this->buildTokenUri(ApiUrl::UPDATEGROUPS), $post_data);
     }
     /**
      * updateUserGroups.
@@ -100,18 +77,9 @@ class Group extends Core\Base
      *
      * @return jsonstring {"errcode": 0, "errmsg": "ok"}
      */
-    public function updateUserGroups($post_data = '')
+    public function updateUserGroups($post_data)
     {
-        if (empty($post_data)) {
-            #TODO
-        }
-        if (Common::checkJson($post_data) == false) {
-            $post_data = Common::toJsonStr($post_data);
-        }
-
-        $params = array('access_token' => $this->access_token);
-
-        return $this->http->post(ApiUrl::UPDATEUSERGROUPS, $params, $post_data);
+        return Core\Http::post($this->buildTokenUri(ApiUrl::UPDATEUSERGROUPS), $post_data);
     }
     /**
      * batchUpdateUserGroups.
@@ -124,16 +92,7 @@ class Group extends Core\Base
      */
     public function batchUpdateUserGroups($post_data = '')
     {
-        if (empty($post_data)) {
-            #TODO
-        }
-        if (Common::checkJson($post_data) == false) {
-            $post_data = Common::toJsonStr($post_data);
-        }
-
-        $params = array('access_token' => $this->access_token);
-
-        return $this->http->post(ApiUrl::BATCHUPDATEUSERSGROUPS, $params, $post_data);
+        return Core\Http::post($this->buildTokenUri(ApiUrl::BATCHUPDATEUSERSGROUPS), $post_data);
     }
     /**
      * delete wechat user groups by id.
@@ -146,13 +105,6 @@ class Group extends Core\Base
      */
     public function deleteGroups($post_data)
     {
-        if (empty($post_data)) {
-            #TODO
-        }
-        if (Common::checkJson($post_data) == false) {
-            $post_data = Common::toJsonStr($post_data);
-        }
-
         return $this->http->_post($this->buildTokenUri(ApiUrl::DELETEGROUPS), $post_data);
     }
 }

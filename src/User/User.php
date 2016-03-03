@@ -18,9 +18,9 @@ class User extends Core\Base
      * @method      get
      * @return jsonstring {"total":1,"count":1,"data":{"openid":["用户openid"]},"next_openid":"oY9n7vs-kSLoQz49KaL3jwY-t0hM"}
      */
-    public function get()
+    public function getUser()
     {
-        return $this->http->_get($this->buildTokenUri(ApiUrl::GETUSERLIST));
+        return Http::get($this->buildTokenUri(ApiUrl::GETUSERLIST));
     }
     /**
      * 通过openid获取用户基本信息.
