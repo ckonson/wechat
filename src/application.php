@@ -9,30 +9,42 @@
 namespace CkWechat;
 
 use CkWechat\Cache\FileCache;
-use CkWechat\Common\Common as Common;
 
 class Application extends Core\Container
 {
     protected $appId;
     protected $secret;
-    protected $access_token;
+    public $access_token;
+    private $service_list = array(
+      Service\GroupService::class,
+    );
 
     public function __construct(array $config)
     {
-        $this->appId = $appId;
-        $this->secret = $secret;
+        $this->appId = $config['appId'];
+        $this->secret = $config['secret'];
         $this->getToken();
-        $access_token = $this->access_token;
-        $this->group = function () use ($access_token) {
-          return new User\Group($access_token);
-        };
-        echo Service\GroupService::class;
+        $this->setServices();
     }
-
-    public function register()
+    public function addService($value = '')
     {
         # code...
-        $providers = array(Service\GroupService::class);
+    }
+    public function setServices()
+    {
+        foreach ($this->service_list as $service_name) {
+            $this->register(new $service_name());
+        }
+    }
+
+    public function register($service_obj)
+    {
+        $service_obj->register($this);
+        #foreach ($values as $key => $value) {
+        #    $this[$key] = $value;
+        #}
+
+        return $this;
     }
 
     public function getToken()
