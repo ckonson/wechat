@@ -20,8 +20,14 @@ class User extends Core\Base
      *
      * @return jsonstring {"total":1,"count":1,"data":{"openid":["用户openid"]},"next_openid":"oY9n7vs-kSLoQz49KaL3jwY-t0hM"}
      */
-    public function getUser()
+    public function getUser($next_openid = null)
     {
+        if (!empty($next_openid)) {
+            $params = array('next_openid' => $next_openid, 'access_token' => $this->access_token);
+
+            return Core\Http::get(ApiUrl::GETUSERS, $params);
+        }
+
         return Core\Http::get($this->buildTokenUri(ApiUrl::GETUSERS));
     }
     /**
@@ -36,9 +42,6 @@ class User extends Core\Base
      */
     public function getUserInfo($openid = '', $lang = 'zh_CN')
     {
-        if (empty($openid)) {
-            #TODO
-        }
         $params = array(
           'access_token' => $this->access_token,
           'openid' => $openid,

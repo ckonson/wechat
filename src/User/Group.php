@@ -10,7 +10,6 @@ namespace CkWechat\User;
 
 use CkWechat\Core;
 use CkWechat\Config\ApiUrl;
-use CkWechat\Common\Common;
 
 class Group extends Core\Base
 {
@@ -39,6 +38,7 @@ class Group extends Core\Base
     public function getGroups()
     {
         $url = $this->buildTokenUri(ApiUrl::GETGROUPS);
+
         return Core\Http::get($url);
     }
     /**
@@ -53,6 +53,7 @@ class Group extends Core\Base
     public function getUserGroups($post_data)
     {
         $url = $this->buildTokenUri(ApiUrl::GETUSERGROUPS);
+
         return Core\Http::post($url, $post_data);
     }
     /**
@@ -105,6 +106,6 @@ class Group extends Core\Base
      */
     public function deleteGroups($post_data)
     {
-        return $this->http->_post($this->buildTokenUri(ApiUrl::DELETEGROUPS), $post_data);
+        return Core\Http::post($this->buildTokenUri(ApiUrl::DELETEGROUPS), $post_data);
     }
 }

@@ -51,4 +51,33 @@ class Common
           }
         );
     }
+    public function checkXml($string = '')
+    {
+        libxml_use_internal_errors(true);
+        $result = simplexml_load_string($string);
+        if (!$result) {
+            return false;
+        }
+
+        return true;
+    }
+    public static function toXml($data = null)
+    {
+        if (!is_array($data)
+            || count($data) <= 0) {
+            throw new \Exception('数组数据异常！');
+        }
+
+        $xml = '<xml>';
+        foreach ($data as $key => $val) {
+            if (is_numeric($val)) {
+                $xml .= '<'.$key.'>'.$val.'</'.$key.'>';
+            } else {
+                $xml .= '<'.$key.'><![CDATA['.$val.']]></'.$key.'>';
+            }
+        }
+        $xml .= '</xml>';
+
+        return $xml;
+    }
 }

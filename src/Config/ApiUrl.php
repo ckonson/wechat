@@ -20,8 +20,8 @@ class ApiUrl
     const GETUSERS = 'https://api.weixin.qq.com/cgi-bin/user/get';
     const GETUSERINFO = 'https://api.weixin.qq.com/cgi-bin/user/info';
     const SETUSERMARK = 'https://api.weixin.qq.com/cgi-bin/user/info/updateremark';
-
     const UPDATEREMARK = 'https://api.weixin.qq.com/cgi-bin/user/info/updateremark';
+
     const CREATEGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/create';
     const GETGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/get';
     const GETUSERGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/getid';

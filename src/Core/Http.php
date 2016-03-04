@@ -9,25 +9,36 @@
 namespace CkWechat\Core;
 
 use CkWechat\Config\Setting;
+use CkWechat\Common\Common as Common;
 
 class Http
 {
-    static public function get($url, $params = null)
+    public static function get($url, $params = null)
     {
-      if (!empty($params)) {
-          $url = self::buildApiUrl($url, $params);
+        if (!empty($params)) {
+            $url = self::buildApiUrl($url, $params);
 
-          return self::postXmlCurl(array(), $url);
-      } else {
-          return self::postXmlCurl(array(), $url);
-      }
+            return self::postXmlCurl(array(), $url);
+        } else {
+            return self::postXmlCurl(array(), $url);
+        }
     }
-    static public function post($url, $params)
+    public static function post($url, $params, $post_type = 'json')
     {
+        if ($post_type == 'json') {
+            if (Common::checkJson($params) == false) {
+                $params = Common::toJsonStr($params);
+            }
+        } elseif ($post_type == 'xml') {
+            if (Common::checkXml($params) == false) {
+                $params = Common::toXml($params);
+            }
+        }
+
         return self::postXmlCurl($params, $url);
     }
 
-    static public function buildApiUrl($url, $params)
+    public static function buildApiUrl($url, $params)
     {
         $url .= '?'.http_build_query($params);
 
