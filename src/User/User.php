@@ -22,7 +22,7 @@ class User extends Core\Base
      */
     public function getUser()
     {
-        return Http::get($this->buildTokenUri(ApiUrl::GETUSERLIST));
+        return Core\Http::get($this->buildTokenUri(ApiUrl::GETUSERS));
     }
     /**
      * 通过openid获取用户基本信息.
@@ -45,25 +45,19 @@ class User extends Core\Base
           'lang' => $lang,
         );
 
-        return $this->http->get(ApiUrl::GETUSERINFO, $params);
+        return Core\Http::get(ApiUrl::GETUSERINFO, $params);
     }
     /**
      * setting user remark.
      *
-     * @method      setUserMark
+     * @method updateRemark
      *
-     * @param string $openid user wechat openid
-     * @param string $remark
+     * @param jsonstring/array $post_data {"openid":"openid","remark":"pangzi"}
      *
-     * @return jsonstring demo {"errcode":0,"errmsg":"ok"}
+     * @return jsonstring {"errcode":40013,"errmsg":"invalid appid"} or {"errcode":0,"errmsg":"ok"}
      */
     public function updateRemark($post_data)
     {
-        if (empty($post_data)) {
-            #TODO
-        }
-        $params = array('access_token' => $this->access_token);
-
-        return $this->http->post(ApiUrl::UPDATEREMARK, $params, $post_data);
+        return Core\Http::post($this->buildTokenUri(ApiUrl::UPDATEREMARK), $post_data);
     }
 }
