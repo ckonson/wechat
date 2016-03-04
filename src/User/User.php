@@ -63,4 +63,21 @@ class User extends Core\Base
     {
         return Core\Http::post($this->buildTokenUri(ApiUrl::UPDATEREMARK), $post_data);
     }
+    /**
+     * 获取默认获取微信用户地理位置信息回调.
+     *
+     * @method getLocation
+     *
+     * @param array $keys 可选 地理位置参数集合
+     *
+     * @return array 对应的键值对数组
+     */
+    public function getLocation($keys = null)
+    {
+        if (empty($keys)) {
+            $keys = array('ToUserName', 'FromUserName', 'CreateTime', 'MsgType', 'Event', 'Latitude', 'Longitude', 'Precision');
+        }
+
+        return Core\Request::getXmlDataByArray($keys);
+    }
 }

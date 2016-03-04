@@ -24,6 +24,8 @@ class Application extends Core\Container
     {
         $this->appId = $config['appId'];
         $this->secret = $config['secret'];
+        $this->cache_path = isset($config['cache_path']) ? $config['cache_path'] : '';
+        $this->cache_time = isset($config['cache_time']) ? $config['cache_time'] : '';
         $this->getToken();
         $this->setServices();
     }
@@ -53,7 +55,11 @@ class Application extends Core\Container
         $result = '';
         $AccessToken_object = new Core\AccessToken($this->appId, $this->secret);
         $cache_key = md5($this->appId.$this->secret);
-        $cache_obj = new FileCache();
+        $conf = array(
+          'cache_path' => $this->cache_path,
+          'cache_time' => $this->cache_time,
+        );
+        $cache_obj = new FileCache($conf);
         $cache_token = $cache_obj->getKey($cache_key);
         if (!$cache_token) {
             $result = $AccessToken_object->getToken();

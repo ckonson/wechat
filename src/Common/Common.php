@@ -51,15 +51,15 @@ class Common
           }
         );
     }
-    public function checkXml($string = '')
+    public static function checkXml($string = '')
     {
         libxml_use_internal_errors(true);
-        $result = simplexml_load_string($string);
+        $result = simplexml_load_string($string, 'SimpleXMLElement', LIBXML_NOCDATA);
         if (!$result) {
             return false;
         }
 
-        return true;
+        return $result;
     }
     public static function toXml($data = null)
     {
