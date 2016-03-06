@@ -13,6 +13,13 @@ use CkWechat\Common\Common as Common;
 
 class Http
 {
+    /**
+     * http get
+     * @method get
+     * @param  string $url
+     * @param  array $params uri query
+     * @return string
+     */
     public static function get($url, $params = null)
     {
         if (!empty($params)) {
@@ -23,6 +30,14 @@ class Http
             return self::postXmlCurl(array(), $url);
         }
     }
+    /**
+     * http post
+     * @method post
+     * @param  string $url
+     * @param  string $params    jsonstring or xml
+     * @param  string $post_type the params type
+     * @return string
+     */
     public static function post($url, $params, $post_type = 'json')
     {
         if ($post_type == 'json') {
@@ -37,6 +52,13 @@ class Http
 
         return self::postXmlCurl($params, $url);
     }
+    /**
+     * [buildApiUrl description]
+     * @method buildApiUrl
+     * @param  string      $url
+     * @param  array      $params
+     * @return string
+     */
 
     public static function buildApiUrl($url, $params)
     {
@@ -44,7 +66,17 @@ class Http
 
         return $url;
     }
-    private static function postXmlCurl($xml, $url, $useCert = false, $second = 30)
+    /**
+     * postXmlCurl curl func
+     * @method postXmlCurl
+     * @param  string      $xml     the post body
+     * @param  string      $url     target request url
+     * @param  bool      $useCert
+     * @param  integer     $second
+     * @return string
+     */
+
+    private static function postXmlCurl(string $xml, string $url, $useCert = false, $second = 30)
     {
         $ch = curl_init();
         //设置超时
