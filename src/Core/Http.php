@@ -117,6 +117,10 @@ class Http
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
         //运行curl
+        if ($_GET['debug']==1) {
+          echo $url."</br>";
+          echo $xml."</br>";
+        }
         $data = curl_exec($ch);
         //返回结果
         if ($data) {

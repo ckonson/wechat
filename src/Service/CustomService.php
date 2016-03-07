@@ -17,6 +17,9 @@ class CustomService implements ServiceInterface
         $obj->message = function ($obj) {
           return new CustomService\Message($obj->access_token);
       };
+      $obj->kfaccount = function ($obj) {
+        return new CustomService\Kfaccount($obj->access_token);
+    };
     }
 }
 ?>

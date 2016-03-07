@@ -27,13 +27,15 @@ class ApiUrl
 
     // user group
     const CREATEGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/create';
-    const GETGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/get';
-    const GETUSERGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/getid';
-    const UPDATEGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/update';
-    const UPDATEUSERGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/members/update';
+    const GETGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/get';
+    const GETUSERGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/getid';
+    const UPDATEGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/update';
+    const UPDATEUSERGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/members/update';
     const BATCHUPDATEUSERSGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/members/batchupdate';
     const DELETEGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/delete';
 
     //custom service
-    const MESSAGECUSTOMSEND='https://api.weixin.qq.com/cgi-bin/message/custom/send';
+    const MESSAGECUSTOMSEND = 'https://api.weixin.qq.com/cgi-bin/message/custom/send';
+    const KFACCOUNTADD = 'https://api.weixin.qq.com/customservice/kfaccount/add';
+    const GETKFACCOUNT = 'https://api.weixin.qq.com/cgi-bin/customservice/getkflist';
 }
