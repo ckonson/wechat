@@ -38,4 +38,7 @@ class ApiUrl
     const MESSAGECUSTOMSEND = 'https://api.weixin.qq.com/cgi-bin/message/custom/send';
     const KFACCOUNTADD = 'https://api.weixin.qq.com/customservice/kfaccount/add';
     const GETKFACCOUNT = 'https://api.weixin.qq.com/cgi-bin/customservice/getkflist';
+    const UPDATEKFACCOUNT = 'https://api.weixin.qq.com/customservice/kfaccount/update';
+    const DELKFACCOUNT = 'https://api.weixin.qq.com/customservice/kfaccount/del';
+    const UPKFACCOUNTIMG='http://api.weixin.qq.com/customservice/kfaccount/uploadheadimg';
 }

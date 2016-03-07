@@ -22,4 +22,9 @@ class Request
 
         return array_intersect_key((array)$xml, array_flip($keys));
     }
+    public static function get($key ='')
+    {
+        $temp = $_GET+$_POST;
+        return isset($temp[$key])?$temp[$key]:null;
+    }
 }

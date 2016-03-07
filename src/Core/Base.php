@@ -17,10 +17,12 @@ class Base
         $this->access_token = $access_token;
         $this->http = new Http();
     }
-    public function buildTokenUri(string $url)
+    public function buildTokenUri(string $url,$uri_params=array)
     {
         $params = array('access_token' => $this->access_token);
-
+        if (!empty($uri_params)) {
+          $params = array_merge($params,$uri_params);
+        }
         return $url.'?'.http_build_query($params);
     }
 }
