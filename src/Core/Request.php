@@ -23,4 +23,3 @@ class Request
         return array_intersect_key((array)$xml, array_flip($keys));
     }
 }
-``

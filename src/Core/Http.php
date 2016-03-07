@@ -14,28 +14,33 @@ use CkWechat\Common\Common as Common;
 class Http
 {
     /**
-     * http get
+     * http get.
+     *
      * @method get
-     * @param  string $url
-     * @param  array $params uri query
+     *
+     * @param string $url
+     * @param array  $params uri query
+     *
      * @return string
      */
     public static function get($url, $params = null)
     {
         if (!empty($params)) {
             $url = self::buildApiUrl($url, $params);
-
-            return self::postXmlCurl(array(), $url);
+            return self::postXmlCurl('', $url);
         } else {
-            return self::postXmlCurl(array(), $url);
+            return self::postXmlCurl('', $url);
         }
     }
     /**
-     * http post
+     * http post.
+     *
      * @method post
-     * @param  string $url
-     * @param  string $params    jsonstring or xml
-     * @param  string $post_type the params type
+     *
+     * @param string $url
+     * @param string $params    jsonstring or xml
+     * @param string $post_type the params type
+     *
      * @return string
      */
     public static function post($url, $params, $post_type = 'json')
@@ -53,13 +58,15 @@ class Http
         return self::postXmlCurl($params, $url);
     }
     /**
-     * [buildApiUrl description]
+     * [buildApiUrl description].
+     *
      * @method buildApiUrl
-     * @param  string      $url
-     * @param  array      $params
+     *
+     * @param string $url
+     * @param array  $params
+     *
      * @return string
      */
-
     public static function buildApiUrl($url, $params)
     {
         $url .= '?'.http_build_query($params);
@@ -67,15 +74,17 @@ class Http
         return $url;
     }
     /**
-     * postXmlCurl curl func
+     * postXmlCurl curl func.
+     *
      * @method postXmlCurl
-     * @param  string      $xml     the post body
-     * @param  string      $url     target request url
-     * @param  bool      $useCert
-     * @param  integer     $second
+     *
+     * @param string $xml     the post body
+     * @param string $url     target request url
+     * @param bool   $useCert
+     * @param int    $second
+     *
      * @return string
      */
-
     private static function postXmlCurl(string $xml, string $url, $useCert = false, $second = 30)
     {
         $ch = curl_init();

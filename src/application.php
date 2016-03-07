@@ -16,8 +16,8 @@ class Application extends Core\Container
     protected $secret;
     public $access_token;
     private $service_list = array(
-      Service\GroupService::class,
       Service\UserService::class,
+      Service\CustomerService::class,
     );
 
     public function __construct(array $config)
@@ -31,8 +31,9 @@ class Application extends Core\Container
     }
     public function addService($value = '')
     {
-        # code...
+        $this->service_list[] = $value;
     }
+
     public function setServices()
     {
         foreach ($this->service_list as $service_name) {
@@ -43,9 +44,6 @@ class Application extends Core\Container
     public function register($service_obj)
     {
         $service_obj->register($this);
-        #foreach ($values as $key => $value) {
-        #    $this[$key] = $value;
-        #}
 
         return $this;
     }

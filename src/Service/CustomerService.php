@@ -8,14 +8,14 @@
 
 namespace CkWechat\Service;
 use CkWechat\Core\Container as Container;
-use CkWechat\User;
+use CkWechat\CustomerService;
 
-class GroupService implements ServiceInterface
+class CustomerService implements ServiceInterface
 {
     public function register(Container $obj)
     {
-        $obj->group = function ($obj) {
-          return new User\Group($obj->access_token);
+        $obj->message = function ($obj) {
+          return new CustomerService\Message($obj->access_token);
       };
     }
 }

@@ -3,10 +3,11 @@
  * Created by PhpStorm.
  * User: kontem
  * Date: 16/3/3
- * Time: 23:01
+ * Time: 23:01.
  */
 
 namespace CkWechat\Service;
+
 use CkWechat\Core\Container as Container;
 use CkWechat\User;
 
@@ -16,7 +17,9 @@ class UserService implements ServiceInterface
     {
         $obj->user = function ($obj) {
           return new User\User($obj->access_token);
-      };
+        };
+        $obj->group = function ($obj) {
+          return new User\Group($obj->access_token);
+        };
     }
 }
-?>

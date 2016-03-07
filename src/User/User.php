@@ -72,10 +72,13 @@ class User extends Core\Base
      *
      * @return array 对应的键值对数组
      */
-    public function getLocation($keys = null)
+    public function getLocation($keys = null, $callable)
     {
         if (empty($keys)) {
             $keys = array('ToUserName', 'FromUserName', 'CreateTime', 'MsgType', 'Event', 'Latitude', 'Longitude', 'Precision');
+        }
+        if ($callable instanceof Closure) {
+            return call_user_func($callable, Core\Request::getXmlDataByArray($keys));
         }
 
         return Core\Request::getXmlDataByArray($keys);

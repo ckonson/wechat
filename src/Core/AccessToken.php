@@ -9,6 +9,7 @@
 namespace CkWechat\Core;
 
 use CkWechat\Config\ApiUrl;
+use CkWechat\Core;
 
 class AccessToken
 {
@@ -18,6 +19,7 @@ class AccessToken
     {
         $this->appid = $appId;
         $this->secret = $secret;
+
     }
     public function getToken()
     {
@@ -26,8 +28,7 @@ class AccessToken
           'secret' => $this->secret,
           'grant_type' => 'client_credential',
         );
-        $http = new Http();
-        return $http->get(ApiUrl::ACCESSTOKEN, $params);
+        return Core\Http::get(ApiUrl::ACCESSTOKEN, $params);
     }
 }
 ?>

@@ -29,4 +29,6 @@ class ApiUrl
     const UPDATEUSERGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/members/update';
     const BATCHUPDATEUSERSGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/members/batchupdate';
     const DELETEGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/delete';
+
+    const MESSAGECUSTOMSEND='https://api.weixin.qq.com/cgi-bin/message/custom/send';
 }
