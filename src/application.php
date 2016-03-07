@@ -17,7 +17,7 @@ class Application extends Core\Container
     public $access_token;
     private $service_list = array(
       Service\UserService::class,
-      Service\CustomerService::class,
+      Service\CustomService::class,
     );
 
     public function __construct(array $config)

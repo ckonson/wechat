@@ -10,18 +10,22 @@ namespace CkWechat\Config;
 
 class ApiUrl
 {
+    //back server
     const ACCESSTOKEN = 'https://api.weixin.qq.com/cgi-bin/token';
     const BACKIPS = 'https://api.weixin.qq.com/cgi-bin/getcallbackip';
 
+    //wechat menu
     const CREATEMENU = 'https://api.weixin.qq.com/cgi-bin/menu/create';
     const GETMENU = 'https://api.weixin.qq.com/cgi-bin/menu/get';
     const DELETEMENU = 'https://api.weixin.qq.com/cgi-bin/menu/delete';
 
+    //user account
     const GETUSERS = 'https://api.weixin.qq.com/cgi-bin/user/get';
     const GETUSERINFO = 'https://api.weixin.qq.com/cgi-bin/user/info';
     const SETUSERMARK = 'https://api.weixin.qq.com/cgi-bin/user/info/updateremark';
     const UPDATEREMARK = 'https://api.weixin.qq.com/cgi-bin/user/info/updateremark';
 
+    // user group
     const CREATEGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/create';
     const GETGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/get';
     const GETUSERGROUPS ='https://api.weixin.qq.com/cgi-bin/groups/getid';
@@ -30,5 +34,6 @@ class ApiUrl
     const BATCHUPDATEUSERSGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/members/batchupdate';
     const DELETEGROUPS = 'https://api.weixin.qq.com/cgi-bin/groups/delete';
 
+    //custom service
     const MESSAGECUSTOMSEND='https://api.weixin.qq.com/cgi-bin/message/custom/send';
 }

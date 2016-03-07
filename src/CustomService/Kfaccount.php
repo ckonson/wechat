@@ -6,7 +6,7 @@
  * Time: 18:06
  */
 
-namespace CkWechat\CustomerService;
+namespace CkWechat\CustomService;
 
 
 class Kfaccount
